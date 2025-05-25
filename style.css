@@ -1,0 +1,176 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 15px; /* Reduzido padding do body */
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px; /* Reduzido padding interno */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 950px; /* Aumentada a largura máxima */
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px; /* Reduzido margin-bottom */
+    font-size: 1.8em; /* Levemente reduzido */
+}
+
+/* Grid para os campos de ENTRADA */
+.input-fields-container {
+    display: grid;
+    /* Tenta encaixar 3 colunas, cada uma com no mínimo 250px */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px; /* Reduzido o gap */
+    margin-bottom: 15px; /* Reduzido margin-bottom */
+}
+
+.input-group { /* Estilos para cada item de entrada */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px; /* Reduzido margin-bottom */
+}
+
+.input-group label {
+    margin-bottom: 4px; /* Reduzido margin-bottom */
+    font-weight: 600;
+    color: #555;
+    font-size: 0.95em; /* Levemente reduzido */
+}
+
+.input-group input[type="text"],
+.input-group input[type="number"] {
+    padding: 8px; /* Reduzido padding interno do input */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.95rem; /* Levemente reduzido */
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.input-group input[type="number"]:focus,
+.input-group input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.15rem rgba(0, 123, 255, 0.25); /* Sombra um pouco menor */
+}
+
+.input-group .description {
+    font-size: 0.8em; /* Reduzida a fonte da descrição */
+    color: #777;
+    margin-top: 2px; /* Reduzido margin-top */
+}
+
+button#calcularBtn { /* Estilizando o botão especificamente */
+    background-color: #007bff;
+    color: white;
+    padding: 10px 18px; /* Reduzido padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem; /* Reduzido font-size */
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out;
+    width: 100%;
+    margin-top: 5px; /* Reduzido margin-top */
+}
+
+button#calcularBtn:hover {
+    background-color: #0056b3;
+}
+
+.warning {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px; /* Reduzido margin-top */
+    min-height: 1.1em;
+    font-size: 0.9em; /* Reduzido font-size */
+}
+
+
+.results-section-container {
+    margin-top: 20px; /* Reduzido margin-top */
+    padding-top: 15px; /* Reduzido padding-top */
+    border-top: 1px solid #eee;
+}
+
+.results-section-container h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 15px; /* Reduzido margin-bottom */
+    font-size: 1.5em; /* Levemente reduzido */
+}
+
+/* Grid para os campos de SAÍDA (Resultados) */
+.output-fields-container {
+    display: grid;
+    /* Tenta encaixar 4 colunas, cada uma com no mínimo 180px.
+       Se não couber 4, tenta 3, depois 2, depois 1. */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px; /* Reduzido o gap */
+}
+
+.output-group { /* Estilos para cada item de resultado */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px; /* Reduzido margin-bottom */
+}
+
+.output-group .label {
+    margin-bottom: 4px; /* Reduzido margin-bottom */
+    font-weight: 600;
+    color: #555;
+    font-size: 0.95em; /* Levemente reduzido */
+}
+
+.output-value {
+    font-size: 1em; /* Reduzido font-size */
+    font-weight: bold;
+    color: #007bff;
+    padding: 8px; /* Reduzido padding */
+    background-color: #e9ecef;
+    border-radius: 4px;
+    min-height: 18px;
+    text-align: left;
+    margin-top: 2px;
+    word-wrap: break-word;
+}
+
+/* Media query para telas menores, onde forçamos menos colunas */
+@media (max-width: 900px) {
+    .input-fields-container {
+        /* Em telas menores que 800px, tenta 2 colunas para inputs */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .output-fields-container {
+         /* Em telas menores que 800px, tenta 2 colunas para outputs */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    .input-fields-container,
+    .output-fields-container {
+        /* Em telas muito pequenas, uma coluna */
+        grid-template-columns: 1fr;
+    }
+    .container {
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    .results-section-container h2 {
+        font-size: 1.3em;
+    }
+}

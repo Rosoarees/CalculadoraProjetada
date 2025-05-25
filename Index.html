@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Lucro Projetado de Ações</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Lucro Projetado</h1>
+
+        <div class="input-fields-container">
+            <div class="input-group">
+                <label for="acao">Ação (Ticker):</label>
+                <input type="text" id="acao" placeholder="Ex: ITUB4">
+            </div>
+            <div class="input-group">
+                <label for="cotacao">Cotação Atual (R$):</label>
+                <input type="number" id="cotacao" step="0.01" placeholder="Ex: 28.50">
+            </div>
+            <div class="input-group">
+                <label for="lpa">LPA Atual (R$):</label>
+                <input type="number" id="lpa" step="0.01" placeholder="Ex: 2.50">
+            </div>
+            <div class="input-group">
+                <label for="cagr">CAGR do LPA (% a.a.):</label>
+                <input type="number" id="cagr" step="0.1" placeholder="Ex: 7 (para 7%)">
+                <span class="description">Crescimento Anual Composto do LPA esperado.</span>
+            </div>
+            <div class="input-group">
+                <label for="payout">Payout (%):</label>
+                <input type="number" id="payout" step="1" placeholder="Ex: 40 (para 40%)">
+                <span class="description">Percentual do Lucro distribuído como dividendo.</span>
+            </div>
+            <div class="input-group">
+                <label for="dyDesejado">DY Desejado (% a.a.):</label>
+                <input type="number" id="dyDesejado" step="0.1" placeholder="Ex: 6 (para 6%)">
+                <span class="description">Dividend Yield mínimo que você espera.</span>
+            </div>
+            <div class="input-group">
+                <label for="anos">Anos para Projeção:</label>
+                <input type="number" id="anos" step="1" placeholder="Ex: 5">
+            </div>
+        </div>
+
+        <button id="calcularBtn">Calcular</button>
+        <div id="warningMessage" class="warning"></div>
+
+        <div class="results-section-container"> 
+            <h2>Resultados da Análise</h2>
+            <div class="output-fields-container">
+                <div class="output-group">
+                    <span class="label">LPA Projetado (R$):</span>
+                    <div id="lpaProjetado" class="output-value"></div>
+                </div>
+                <div class="output-group">
+                    <span class="label">Divid. Projetado Por Ação (R$):</span>
+                    <div id="dividendo" class="output-value"></div>
+                </div>
+                <div class="output-group">
+                    <span class="label">Preço Teto (R$):</span>
+                    <div id="precoTeto" class="output-value"></div>
+                </div>
+                <div class="output-group">
+                    <span class="label">Margem de Segurança (%):</span>
+                    <div id="margemSeguranca" class="output-value"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
